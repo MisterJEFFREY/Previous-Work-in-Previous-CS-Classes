@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<script>
+//var employee_name = "" 
+var punch_in = 0 // 0 = false, 1= true
+var punch_out =1 // 0 = false, 1= true
+//var the_employee_name = " " // must be blank
+//needed numbers
+var total_punch_time = 0 // must be empty on start
+var punch_time_sec =   0 // must be 
+var punch_time_hour =  0 
+</script>
+
+<script>    //Keeps track of just 4 employees since this project is small
+    var which_employee = 0 // 0 none, 1,2,3,4
+////////////////////////////////////////////////////////////////////////////////////////////For EMP 1
+    var emp_1_punch_in = 0 // 0 = false, 1= true
+    var emp_1_punch_out = 1 // 0 = false, 1= true
+    var emp_1_name = " " // must be blank
+    //needed numbers
+    var emp_1_timer_active = 0
+    var emp_1_total_punch_time = 0 // must be empty on start
+    var emp_1_punch_time_sec =   0   // must be 
+    var emp_1_punch_time_min = 0
+    var emp_1_punch_time_hour = 0
+    /////////// END
+    ////////////////////////////////////////////////////////////////////////////////////////////For EMP 2
+    var emp_2_punch_in = 0 // 0 = false, 1= true
+    var emp_2_punch_out = 1 // 0 = false, 1= true
+    var emp_2_name = " " // must be blank
+    //var the_employee_name = " " // must be blank
+    //needed numbers
+    var emp_2_total_punch_time = 0 // must be empty on start
+    var emp_2_punch_time_sec = 0   // must be 
+    var emp_2_punch_time_min = 0
+    var emp_2_punch_time_hour = 0
+    /////////// END
+    ////////////////////////////////////////////////////////////////////////////////////////////For EMP 3
+    var emp_3_punch_in = 0 // 0 = false, 1= true
+    var emp_3_punch_out = 1 // 0 = false, 1= true
+    var emp_3_name = " " // must be blank
+    //var the_employee_name = " " // must be blank
+    //needed numbers
+    var emp_3_total_punch_time = 0 // must be empty on start
+    var emp_3_punch_time_sec = 0   // must be 
+    var emp_3_punch_time_min = 0
+    var emp_3_punch_time_hour = 0
+    /////////// END
+    ////////////////////////////////////////////////////////////////////////////////////////////For EMP 4
+    var emp_4_punch_in = 0 // 0 = false, 1= true
+    var emp_4_punch_out = 1 // 0 = false, 1= true
+    var emp_4_name = " " // must be blank
+    //var the_employee_name = " " // must be blank
+    //needed numbers
+    var emp_4_total_punch_time = 0 // must be empty on start
+    var emp_4_punch_time_sec = 0   // must be 
+    var emp_4_punch_time_min = 0
+    var emp_4_punch_time_hour = 0
+    /////////// END
+</script>
+
+<script>
+/////////////////////////////////////////////////////
+</script>
+
+<p>Welcome to the School!</p>
+<p>Please enter the Prisoner Name:</p>
+<input type ="text" id="employee_name" name="text1">
+<b>
+<button onclick="check_punch_in()">Punch In</button>
+
+<b>
+<button onclick="check_punch_out()">Punch Out</button>
+<b>
+<input type ="text" id="employee_name_punch_out" name="text2">
+<b>
+<script>
+function ultimate_failure(){
+alert("Something went wrong.");
+}
+
+function check_punch_in(){
+    //var the_employee_name = document.getElementById("employee_name").value;
+    if (emp_1_punch_in == 0) {
+        emp_1_name = document.getElementById("employee_name").value;
+        which_employee = 1;
+        emp_1_punch_in = 1;
+        document.getElementById("emp_1_name_cell").innerHTML = emp_1_name;
+        document.getElementById("emp_1_punch_status_cell").innerHTML = "WORKING";
+    }
+    else if (emp_2_punch_in == 0) {
+        emp_2_name = document.getElementById("employee_name").value;
+        which_employee = 2;
+        emp_2_punch_in = 1;
+        document.getElementById("emp_2_name_cell").innerHTML = emp_2_name;
+        document.getElementById("emp_2_punch_status_cell").innerHTML = "WORKING";
+
+    }
+    else if (emp_3_punch_in == 0) {
+        emp_3_name = document.getElementById("employee_name").value;
+        which_employee = 3;
+        emp_3_punch_in = 1;
+        document.getElementById("emp_3_name_cell").innerHTML = emp_3_name;
+        document.getElementById("emp_3_punch_status_cell").innerHTML = "WORKING";
+
+    }
+    else if (emp_4_punch_in == 0) {
+        emp_4_name = document.getElementById("employee_name").value;
+        which_employee = 4;
+        emp_4_punch_in = 1;
+        document.getElementById("emp_4_name_cell").innerHTML = emp_4_name;
+        document.getElementById("emp_4_punch_status_cell").innerHTML = "WORKING";
+
+    }
+    else {
+        alert("All Punch Slots are currently full. Please wait until at least one prisoner punches out.");
+    };
+    the_employee_name = document.getElementById("employee_name").value;
+    alert(the_employee_name + " has joined us in the Gulag and is prisoner #" + which_employee);
+    which_employee = 0;
+}
+</script> 
+
+<script>
+    function emp_1_punch_time() {
+
+    }
+</script>
+
+
+<script>
+    function check_punch_out() {
+        the_employee_name_out = document.getElementById("employee_name_punch_out").value;
+        if (emp_1_punch_in == 1 && the_employee_name_out == emp_1_name) {
+            emp_1_punch_in = 0;
+            alert(the_employee_name_out + " has abandoned the Gulag after " + "");
+            emp_1_name = " ";
+            document.getElementById("emp_1_name_cell").innerHTML = emp_1_name;
+            document.getElementById("emp_1_punch_status_cell").innerHTML = "EMPTY";
+
+        }
+        else if (emp_2_punch_in == 1 && the_employee_name_out == emp_2_name) {
+            emp_2_punch_in = 0;
+            alert(the_employee_name_out + " has abandoned the Gulag after " + "");
+            emp_2_name = " ";
+            document.getElementById("emp_2_name_cell").innerHTML = emp_2_name;
+            document.getElementById("emp_2_punch_status_cell").innerHTML = "EMPTY";
+        }
+        else if (emp_3_punch_in == 1 && the_employee_name_out == emp_3_name) {
+            emp_3_punch_in = 0;
+            alert(the_employee_name_out + " has abandoned the Gulag after " + "");
+            emp_3_name = " ";
+            document.getElementById("emp_3_name_cell").innerHTML = emp_3_name;
+            document.getElementById("emp_3_punch_status_cell").innerHTML = "EMPTY";
+        }
+        else if (emp_4_punch_in == 1 && the_employee_name_out == emp_4_name) {
+            emp_4_punch_in = 0;
+            alert(the_employee_name_out + " has abandoned the Gulag after " + "");
+            emp_4_name = " ";
+            document.getElementById("emp_4_name_cell").innerHTML = emp_4_name;
+            document.getElementById("emp_4_punch_status_cell").innerHTML = "EMPTY";
+        } else {
+            alert(the_employee_name_out + " currently does not exist in our Gulag.");
+        }
+}
+</script>
+
+<p id ="checking_if_punch_out"></p>
+<script>
+////////////////////////////////////Leftovers///////////////////////////
+//action="action_page.php"
+//<input type="submit" value="Submit">
+//<input type = "button" value =""
+</script>
+    </body>
+
+    <head>
+<style>
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+</style>
+</head>
+<body>
+
+<table>
+  <tr>
+    <th>Prisoner:</th>
+    <th>Punched In TIME</th>
+    <th>Punch STATUS:</th>
+  </tr>
+  <tr>
+    <td id ="emp_1_name_cell">N/A</td>
+    <td> <time_1>00:00:00 </time_1></td>
+    <td id ="emp_1_punch_status_cell">EMPTY</td>
+  </tr>
+  <tr>
+    <td id="emp_2_name_cell">N/A</td>
+    <td>00:00:00</td>
+    <td id ="emp_2_punch_status_cell">EMPTY</td>
+  </tr>
+  <tr>
+    <td id="emp_3_name_cell">N/A</td>
+    <td>00:00:00</td>
+    <td id ="emp_3_punch_status_cell">EMPTY</td>
+  </tr>
+  <tr>
+    <td id="emp_4_name_cell">N/A</td>
+    <td>00:00:00</td>
+    <td id ="emp_4_punch_status_cell">EMPTY</td>
+  </tr>
+</table>
+
+
+</body>
+</html>
+

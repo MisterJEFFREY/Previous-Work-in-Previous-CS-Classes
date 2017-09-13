@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>Put your random range and perform a random yet simple mathematical operation!</p>
+
+<p>What's the range, mate? 1 up to: </p>
+
+<script>
+// var test_score = parseInt(localStorage.keptScore) || 0;
+//tested value
+var check_input = 0;
+//conditional value
+var result = 0;
+
+//randomized values
+var piece_1 = 0;
+var piece_2 = 0;
+var piece_3 = 0; // Random Math Operator
+
+var piece_4 = 0; //
+var debug_output = 0; // Delete/hide afterwards
+
+var total_piece = 0.0;
+//var total_piece_2 = 0.0;
+var end_script = 0;
+
+//stored values
+var got_right = 0;
+var got_wrong = 0;
+var total_score = 0;
+
+var which_name = 0;
+</script>
+
+
+
+<p id = "demo_0">
+<input id="Ranged"/>
+<script>
+function GetRange(){
+piece_4 = document.getElementById("Ranged").value;
+}
+</script>
+</script>
+
+<p></p>
+<button onclick="Randomize()">Random my Numbers & Operator!</button>
+
+<p id = "demo_1"></p><p id = "demo_2"></p> <p id = "demo_2.5"></p>
+<script>
+function Randomize(){
+    document.getElementById("demo_2.5").innerHTML ="";
+    document.getElementById("demo_3").innerHTML ="";
+    document.getElementById("demo_4").innerHTML ="";
+    document.getElementById("demo_5").innerHTML ="";
+    document.getElementById("demo_6").innerHTML ="";
+    document.getElementById("demo_3.5").innerHTML ="";
+    document.getElementById("input").value ="";
+    end_script =0;
+    
+    piece_4 = document.getElementById("Ranged").value;
+//clears values of demo 2.5, 3, 3.5, 4, 5, 6 && clears input box (For everytime RANDOM is clicked)^^^
+    piece_1 = Math.floor((Math.random() * piece_4) + 1);
+    piece_2 = Math.floor((Math.random() * piece_4) + 1);
+    piece_3 = Math.floor((Math.random() * 3) + 1); // 1=add,2=sub,3=multi,4=divi (4 IS CANNED DUE TO BUGS BUNNY)
+	if (piece_3 == 1){ // start selection
+	 piece_3 = " + "; //if  add
+	 total_piece = (piece_1 + piece_2); 
+} else if (piece_3 == 2){
+	piece_3 = " - "; // if sub
+	total_piece = (piece_1 - piece_2);
+} else if (piece_3 == 3){
+	piece_3 = " * "; // if multi
+	total_piece = (piece_1 * piece_2); 
+} else if (piece_3 == 4){
+	piece_3 = " / "; // if divi
+   	 total_piece = (piece_1 / piece_2);
+         //total_piece = num.toPrecision(4);
+    document.getElementById("demo_2.5").innerHTML = "Round your answer to the nearest hundrenths!";
+}// end selection
+
+    document.getElementById("demo_1").innerHTML = piece_1 + piece_3 + piece_2 + " =  ??";
+	
+//debug. delete after ^^
+}
+</script>
+
+
+<button onclick="CheckSum()">Check Sum</button>
+
+<p id="demo_3"></p> <p id="demo_3.5"></p> <p id="demo_4"></p><p id="demo_5"></p> <p id="demo_6"></p>
+
+<input id="input"/>
+<script>
+function CheckSum() {
+    //document.getElementById("demo_4").innerHTML =check_input;
+// ^ debugging value. delete after (displays current value)
+
+    check_input = document.getElementById("input").value;
+    //document.getElementById("demo_6").innerHTML =total_piece;
+    //document.getElementById("demo_5").innerHTML =check_input;
+	//parseInt(check_input);
+// ^ debugging value. delete after (displays current value after input)
+
+    if (piece_3 == 4){
+	total_piece_2 = total_piece.toFixed(1);
+}// C'mon! ROUND IT!
+
+if (end_script == 0){
+	if (check_input == total_piece_2){
+	result = "right answer, pal!";
+	got_right += 1;
+	total_score += 1; // INcrements score
+	end_script = 1; // ENDS SCRIPT (To prevent clicking the button for inflated score)
+} else {
+	result = "wrong answer, pal!";
+	got_wrong += 1;
+	total_score -= 1; // DEcrements score (negative scores are allowed)
+	end_script = 1; // ENDS SCRIPT (To prevent clicking the button for inflated score)
+}
+}
+//    result = (check_input == total_piece) ? "right answer, pal!":"wrong answer, pal!";
+    document.getElementById("demo_3").innerHTML = "You got the " + result;
+    document.getElementById("demo_4").innerHTML = "Your current score is " + total_score + "!";
+    document.getElementById("demo_6").innerHTML = "Click Randomize to Try again!";
+    document.getElementById("demo_3.5").innerHTML= "The right answer was: " + total_piece_2;
+}
+
+
+</script>
+
+</body>
+</html>

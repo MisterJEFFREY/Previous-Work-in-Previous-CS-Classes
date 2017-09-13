@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>Click the button to display a random number between 1 and 10</p>
+<p>within the 2 text boxes, and then add both of them.</p>
+
+<button onclick="myFunction()">Go ahead, Try Me</button>
+
+<p>  </p>
+
+<input type ="text" id="text1" name="text1"> 
+<p> + </p>
+<input type ="text" id="text2" name="text2"> 
+<p> = </p>
+<input type ="text" id="text3" name="text3">
+
+
+
+<p id="demo"></p>
+
+<script>
+function myFunction() {
+    var x = Math.floor((Math.random() * 10) + 1);
+    //document.getElementById("demo").innerHTML = x;
+    document.getElementById('text1').value =x;
+    var y = Math.floor((Math.random() * 10) + 1);
+    //document.getElementById("demo_2").innerHTML = y;
+    document.getElementById('text2').value =y;
+    var c = +x + +y
+    //document.getElementById("demo_3").innerHTML = c;
+    document.getElementById("text3").value =c;
+}
+</script>
+<button onclick="myFunction_2()">Click me to give me Extra Credit!</button>
+<p>Extra Credit Points: </p>
+
+<p id="demo_3"></p>
+
+<script>
+    var r = 0;
+function myFunction_2() {
+    //var r = 1;
+    //var e = 1;
+    //var f = r++
+    
+    document.getElementById("demo_3").innerHTML = ++r;
+    //document.getElementById("text3").value =c;
+}
+</script>
+
+</body>
+</html>
+
