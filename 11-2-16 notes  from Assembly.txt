@@ -1,0 +1,60 @@
+Working on Problem 2
+in 6.11.2 Excersice
+
+~~~~~~~~~~~~~~~~~~~~~~
+http://www.tripbuzz.com/zaps-zone-stockton-ca
+http://www.geostat.org/data/modesto-ca/beaches
+~~~~~~~~~~~~~~~~~~~~~~~
+________
+.386
+.model flat, stdcall
+.stack 4096
+ExitProcess proto, dwExitCode:dword
+
+.data
+lowerLimit dword 20					; lower limit j
+upperLimit dword 40					; upper limit k
+array_1 sdword 10, 30, 25, 15, 17, 19, 40, 41, 43
+count_1 = LENGTHOF array_1
+array_2 sdword 10, -30, 25, 15, 17, 55, 40, 41, 43
+count_2 = LENGTHOF array_2
+
+.code
+main proc
+	mov ebx, lowerLimit	;
+	mov edx, upperLimit	;
+	mov esi, OFFSET array_1
+	mov ecx, count_1
+	call CalcSumRange	;returns sum in eax
+
+	invoke ExitProcess, 0
+main endp
+
+CalcSumRange proc
+.data
+sum sdword ?
+
+.code
+	pushad ; preserve all registers
+
+	mov sum, 0 	; initialize accumulator
+
+L1: mov eax, [esi] 	;
+	cmp eax, ebx	; check lower limit
+	jl next
+	cmp eax, edx	; check upper limit
+	jg next
+	add sum, eax	; number is in range, add in
+
+next:
+	add esi, 4	; move to next element in 
+	loop L1		; looks like a loop
+
+	popad		; restore registers
+	mov eax, sum	; return sum in eax
+	ret
+
+CalcSumRange endp
+
+end main
+_______
